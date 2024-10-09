@@ -9,11 +9,6 @@ bot = telebot.TeleBot(TOKEN)
 user_data = {}
 
 @bot.message_handler(commands=['start'])
-def start(message):
-    user_data[message.chat.id] = {}
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    markup.add(types.KeyboardButton("Начать расчет зарплаты"))
-    bot.send_message(message.chat.id, "Привет! Я бот для расчета заработной платы тренера. Нажмите кнопку ниже, чтобы начать!", reply_markup=markup)
 
 @bot.message_handler(func=lambda message: message.text == "Начать расчет зарплаты")
 def start_salary_calculation(message):
